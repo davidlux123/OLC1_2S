@@ -1,6 +1,7 @@
 import { NodoAST } from "./NodoAST";
+import { Entorno } from "./Entorno/Entorno";
 
 interface Expresion extends NodoAST{
-    operar():Object;
+    operar(ent:Entorno):Object;
 }
 export {Expresion}; 

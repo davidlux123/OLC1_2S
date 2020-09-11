@@ -1,4 +1,5 @@
 import { Expresion } from "../Expresion";
+import { Entorno } from "../Entorno/Entorno";
 
 class Primitivo implements Expresion {
         
@@ -12,7 +13,7 @@ class Primitivo implements Expresion {
         this.tipo=tipo;
     }
 
-    operar(): Object {
+    operar(ent:Entorno): Object {
         if(this.tipo==Primitivo.tipo_p.DOUBLE || this.tipo==Primitivo.tipo_p.INT){
             return Number(this.valor);
         }

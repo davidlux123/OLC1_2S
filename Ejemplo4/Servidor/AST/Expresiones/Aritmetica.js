@@ -8,9 +8,9 @@ var Aritmetica = /** @class */ (function () {
         this.tipo_op = tipo_op;
         this.linea = linea;
     }
-    Aritmetica.prototype.operar = function () {
-        var izq1 = (this.izq == null) ? null : this.izq.operar();
-        var der1 = (this.der == null) ? null : this.der.operar();
+    Aritmetica.prototype.operar = function (ent) {
+        var izq1 = (this.izq == null) ? null : this.izq.operar(ent);
+        var der1 = (this.der == null) ? null : this.der.operar(ent);
         if (this.tipo_op == Aritmetica.tipo_a.SUMA) {
             return Number(izq1) + Number(der1);
         }

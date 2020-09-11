@@ -1,4 +1,5 @@
 import { Expresion } from "../Expresion";
+import { Entorno } from "../Entorno/Entorno";
 
 class Aritmetica implements Expresion {
 
@@ -14,9 +15,9 @@ class Aritmetica implements Expresion {
         this.linea=linea;
     }
 
-    operar(): Object {
-        var izq1 = (this.izq==null)?null:this.izq.operar();
-        var der1 = (this.der==null)?null:this.der.operar();
+    operar(ent:Entorno): Object {
+        var izq1 = (this.izq==null)?null:this.izq.operar(ent);
+        var der1 = (this.der==null)?null:this.der.operar(ent);
 
         if(this.tipo_op==Aritmetica.tipo_a.SUMA){
 

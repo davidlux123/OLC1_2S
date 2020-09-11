@@ -3,6 +3,7 @@ var cors = require('cors');
 var bodyParser = require('body-parser');
 var Gramatica = require("./Analizador/Gramatica");
 import { Response, Request } from "express";
+import { Errores } from "./AST/Errores";
 
 
 var app = express();
@@ -12,9 +13,15 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 
 app.post('/Calcular/', function (req:Request, res:Response) {
-    var entrada = req.body.operacion;
+
+    var entrada = req.body.texto;
     var resultado = parser(entrada);
-    res.send(resultado.toString());
+
+    if(Errores.verificarerror()){
+        resultado = Errores.geterror() + resultado;
+    }
+    Errores.clear();
+    res.send(JSON.stringify({"result":resultado.toString()}));
 });
 
 

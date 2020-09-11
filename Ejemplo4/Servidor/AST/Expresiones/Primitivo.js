@@ -7,7 +7,7 @@ var Primitivo = /** @class */ (function () {
         this.linea = linea;
         this.tipo = tipo;
     }
-    Primitivo.prototype.operar = function () {
+    Primitivo.prototype.operar = function (ent) {
         if (this.tipo == Primitivo.tipo_p.DOUBLE || this.tipo == Primitivo.tipo_p.INT) {
             return Number(this.valor);
         }
